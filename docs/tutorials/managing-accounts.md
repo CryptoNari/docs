@@ -158,7 +158,7 @@ The API will respond with a new transaction ID and confirmation that the faucet 
 
 :::note
 
-Wait a few minutes for the transaction to complete. You can review the status using the Explorer, by navigating to the following URL: `https://explorer.stacks.co/txid/<txid>`.
+Wait a few minutes for the transaction to complete. You can review the status using the Explorer, by navigating to the following URL: `https://explorer.stacks.co/txid/<txid>?chain=testnet`.
 
 :::
 
