@@ -105,6 +105,8 @@ The API will respond with a balance, nonce (starting at zero), and respective pr
 ```js
 {
   balance: '0x00000000000000000000000000000000',
+  locked: '0x00000000000000000000000000000000',
+  unlock_height: 0,
   nonce: 0,
   balance_proof: '',
   nonce_proof: ''
@@ -181,26 +183,42 @@ The API will respond with a paginatable list of transactions associated with the
   total: 1,
   results: [
     {
-      tx_id: '0x89ee63c0',
-      tx_type: 'token_transfer',
+      tx_id: '0x3894db345df942d6cd3792f2c23de00ecc757e776e39e80bdcfc2875b63679b5',
+      nonce: 13161,
       fee_rate: '180',
-      sender_address: 'STB44HYPYAT2BB2QE513NSP81HTMYWBJP02HPGK6',
+      sender_address: 'ST2QKZ4FKHAH1NQKYKYAYZPY440FEPK7GZ1R5HBP2',
       sponsored: false,
       post_condition_mode: 'deny',
-      tx_status: 'success',
-      block_hash: '0x167662a4e',
-      block_height: 2951,
-      burn_block_time: 1598910912,
-      burn_block_time_iso: '2020-08-31T21:55:12.000Z',
+      post_conditions: [],
+      anchor_mode: 'any',
+      is_unanchored: false,
+      block_hash: '0x64ac350e6d6431327f536cc93d83a04eeacf26ba80ee68eafe3ae959212c228e',
+      parent_block_hash: '0xd5bfa883d76ab51534a83d55a4e4a6cf7055341364311a76e718ee444f6fcf6e',
+      block_height: 38458,
+      burn_block_time: 1646398157,
+      burn_block_time_iso: '2022-03-04T12:49:17.000Z',
+      parent_burn_block_time: 1646397274,
+      parent_burn_block_time_iso: '2022-03-04T12:34:34.000Z',
       canonical: true,
       tx_index: 1,
-      tx_result: {"hex":"0x03","repr":"true"},
+      tx_status: 'success',
+      tx_result: { hex: '0x0703', repr: '(ok true)' },
+      microblock_hash: '',
+      microblock_sequence: 2147483647,
+      microblock_canonical: true,
+      event_count: 1,
+      events: [],
+      execution_cost_read_count: 0,
+      execution_cost_read_length: 0,
+      execution_cost_runtime: 0,
+      execution_cost_write_count: 0,
+      execution_cost_write_length: 0,
+      tx_type: 'token_transfer',
       token_transfer: {
-        recipient_address:"STW617CAFYNFQG6G470DNWW4V56XAY7125S3Z6RK",
-        amount:"500000",
-        memo:"0x466175636574000000"
-        },
-      events: [{ ... }]
+        recipient_address: 'ST0ANAYPAZ5A77ET8Q7V3NJ3S4WQ30TC2WCSQSS4',
+        amount: '500000000',
+        memo: '0x46617563657400000000000000000000000000000000000000000000000000000000'
+      }
     }
   ]
 }
@@ -252,12 +270,20 @@ The API will respond with the following breakdown of token balances:
 ```js
 {
   stx: {
-    balance: '500000',
+    balance: '500000000',
     total_sent: '0',
-    total_received: '500000'
+    total_received: '500000000',
+    total_fees_sent: '0',
+    total_miner_rewards_received: '0',
+    lock_tx_id: '',
+    locked: '0',
+    lock_height: 0,
+    burnchain_lock_height: 0,
+    burnchain_unlock_height: 0
   },
   fungible_tokens: {},
-  non_fungible_tokens: {}
+  non_fungible_tokens: {},
+  token_offering_locked: undefined
 }
 ```
 
@@ -267,4 +293,4 @@ The `balance` field is denoted in micro-STX units. 1,000,000 micro-STX are worth
 
 :::
 
-In the preceding response, the current Stacks (STX) balance is `500000` micro-STX, or `0.5` Stacks (STX) token.
+In the preceding response, the current Stacks (STX) balance is `500000000` micro-STX, or `500` Stacks (STX) token.
